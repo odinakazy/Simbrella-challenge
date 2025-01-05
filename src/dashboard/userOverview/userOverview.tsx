@@ -5,13 +5,15 @@ import { useQuery } from "@tanstack/react-query";
 // import { fetchUserData } from "../../apis/services/";
 import { User } from "../../apis/Types";
 import { fetchUserData } from "@/apis/services/userOverveiw/getUserDetails";
-import UserOverviewSkeleton from "@/components/loader/skeletonLoader";
+import UserOverviewSkeleton from "@/components/loader/overviewSkeletonLoader";
 
 const UserOverview: React.FC = () => {
   const { data, isLoading, isError } = useQuery<User[]>({
     queryKey: ["user"], // Correctly defined queryKey
     queryFn: fetchUserData, // Fetch function
   });
+
+  console.log(data?.[0]?.recentTransactions);
 
   // Dynamic greeting based on the current time
   const currentHour = new Date().getHours();
@@ -90,6 +92,7 @@ const UserOverview: React.FC = () => {
                   <th className="px-4 py-2 text-left">Date</th>
                   <th className="px-4 py-2 text-left">Description</th>
                   <th className="px-4 py-2 text-right">Amount</th>
+                  <th className="px-4 py-2 text-center">Transaction Type</th>
                 </tr>
               </thead>
               <tbody>
@@ -113,6 +116,9 @@ const UserOverview: React.FC = () => {
                     >
                       {transaction.amount < 0 ? "-" : "+"}$
                       {Math.abs(transaction.amount).toFixed(2)}
+                    </td>
+                    <td className="px-4 py-2 text-center">
+                      {transaction?.type}
                     </td>
                   </tr>
                 ))}

@@ -13,12 +13,18 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,
+    "jsx": "react-jsx",
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Add testing-library types here */
+    "types": ["@testing-library/jest-dom", "jest"],
+    "esModuleInterop": true
+    // "allowSyntheticDefaultImports": true
   },
   "include": ["vite.config.ts"]
 }

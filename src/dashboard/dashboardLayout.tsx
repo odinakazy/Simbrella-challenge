@@ -18,10 +18,10 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex h-screen bg-gray-50">
       {/* Hamburger Menu for Mobile */}
       <button
-        className="sm:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-blue-600 text-white focus:outline-none"
+        className="sm:hidden absolute top-4 left-4 z-50 p-2 rounded-md bg-blue-600 text-white focus:outline-none"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >
         {isSidebarOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
@@ -30,7 +30,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
       {/* Sidebar */}
       <div
         className={cn(
-          "fixed top-0 left-0 min-h-screen w-64 bg-blue-600 p-6 text-white transition-transform transform sm:static sm:translate-x-0 z-40",
+          "fixed top-0 left-0 h-screen w-64 bg-blue-600 p-6 text-white transition-transform transform sm:static sm:translate-x-0 z-40",
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
@@ -50,13 +50,13 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
       {/* Overlay for Mobile Sidebar */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0  sm:hidden z-30"
+          className="fixed inset-0 sm:hidden z-30"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
       {/* Main Content Area */}
-      <div className="flex-1 p-6 overflow-auto ">{children}</div>
+      <div className="flex-1 overflow-y-auto p-6">{children}</div>
     </div>
   );
 };
