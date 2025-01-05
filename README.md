@@ -24,9 +24,9 @@ Ensure that you have the following tools installed on your machine:
    ```
 
 2. **Install Dependencies & Run the Development Server**:
-   cd simbrella-challenge
-   pnpm install
-   pnpm dev
+   - cd simbrella-challenge
+   - pnpm install
+   - pnpm dev
 
 ## Approach
 
