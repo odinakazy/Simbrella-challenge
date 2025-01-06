@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx" // Ensure JSX is supported
+  },
+  "include": [
+    "src/**/*",
+    "tests/**/*" // Make sure tests are included
+  ]
+}

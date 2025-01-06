@@ -1,7 +1,7 @@
-export default {
+module.exports = {
   testEnvironment: "jest-environment-jsdom",
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.tsx?$": ["ts-jest", { tsconfig: "<rootDir>/tsconfig.test.json" }],
   },
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
